@@ -4,6 +4,15 @@ Wygwam Enhanced Image is an extension for the ExpressionEngine Platform and Wygw
 
 ![Wygwam Enhanced Image Example](https://monosnap.com/file/HgE5NMMFM3DFhYrrrTDadpvECDYxDq.png)
 
+#### The above produces the following HTML:
+
+```
+<figure class="image-caption image-right">
+	<img alt="Tiger Crossing Water" height="293" src="http://www.interasia.com.au/wp-content/uploads/2012/09/Royality-and-Tigers.jpg" width="548" />
+	<figcaption>Tiger Crossing Water</figcaption>
+</figure>
+```
+
 ## Requirements
 
 [Wygwam 3.3.3](https://devot-ee.com/add-ons/wygwam)
