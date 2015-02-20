@@ -1,6 +1,6 @@
 # Wygwam Enhanced Image
 
-Wygwam Enhanced Image is an extension for the ExpressionEngine Platform and Wygwam's CKEditor. It replaces the default Image plugin with the [Enhanced Image](http://ckeditor.com/addon/image2) plugin.
+Wygwam Enhanced Image is an extension for the ExpressionEngine Platform and Wygwam's CKEditor. It replaces the default Image plugin with the [Enhanced Image](http://ckeditor.com/addon/image2) plugin. Caption-able images being one of the main enhancements via [HTML5 Figure and Figcaption elements](http://html5doctor.com/the-figure-figcaption-elements).
 
 ![Wygwam Enhanced Image Example](https://monosnap.com/file/HgE5NMMFM3DFhYrrrTDadpvECDYxDq.png)
 
