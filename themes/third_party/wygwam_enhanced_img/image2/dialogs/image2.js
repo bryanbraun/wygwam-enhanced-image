@@ -361,7 +361,7 @@ CKEDITOR.dialog.add( 'image2', function( editor ) {
 
 	// Render the "Browse" button on demand to avoid an "empty" (hidden child)
 	// space in dialog layout that distorts the UI.
-	if ( hasFileBrowser ) {
+	//if ( hasFileBrowser ) {
 		srcBoxChildren.push( {
 			type: 'button',
 			id: 'browse',
@@ -373,7 +373,7 @@ CKEDITOR.dialog.add( 'image2', function( editor ) {
 			hidden: true,
 			filebrowser: 'info:src'
 		} );
-	}
+	//}
 
 	return {
 		title: lang.title,
