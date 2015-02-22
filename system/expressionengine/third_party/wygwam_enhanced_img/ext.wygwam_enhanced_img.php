@@ -18,7 +18,7 @@ class Wygwam_enhanced_img_ext
     private static $_included_resources = FALSE;
 
     var $name           = 'Wygwam Enhanced Image';
-    var $version        = '0.1';
+    var $version        = '0.2';
     var $description    = '';
     var $docs_url       = 'http://github.com/Natetronn/wygwam_enhanced_image';
     var $settings_exist = 'y';
