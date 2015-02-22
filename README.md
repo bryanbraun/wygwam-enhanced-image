@@ -53,7 +53,13 @@ Don't forget to set your custom classes in your CSS file ;-)
 
 [Pixel & Tonic](http://pixelandtonic.com/)
 
-### Change Log ###
+### Changelog ###
+
+**Feb 21, 2015: 0.2**
+
+	Added Browse Server button
+	Added Imageresponsive plugin
+	Removed jQuery and jQuery Migrate Hack
 
 **Feb 20, 2015: 0.1**
 
