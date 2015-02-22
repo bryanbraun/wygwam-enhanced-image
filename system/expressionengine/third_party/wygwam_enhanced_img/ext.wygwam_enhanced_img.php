@@ -52,6 +52,7 @@ class Wygwam_enhanced_img_ext
     {
         
         $this->settings = array(
+            'imageresponsive'   => FALSE,
             'inline_or_class'   => "inline",
             'captioned_class'   => "image-captioned",
             'align_classes'     => "'image-left', 'image-center', 'image-right'",
@@ -98,6 +99,7 @@ class Wygwam_enhanced_img_ext
     {
         $settings = array();
 
+        $settings['imageresponsive'] = array('r', array(FALSE => "Non-Responsive", TRUE => "Responsive"), FALSE);
         $settings['inline_or_class'] = array('r', array('inline' => "Inline", 'class' => "Class"), 'inline');
         $settings['captioned_class'] = array('i', '', "image-captioned");
         $settings['align_classes']  = array('i', '', "'image-left', 'image-center', 'image-right'");
@@ -107,6 +109,9 @@ class Wygwam_enhanced_img_ext
 
     public function wygwam_config($config, $settings)
     {
+
+        $imageresponsive    = $this->settings['imageresponsive'];
+
         if (($last_call = ee()->extensions->last_call) !== FALSE)
         {
             $config = $last_call;
@@ -120,6 +125,11 @@ class Wygwam_enhanced_img_ext
 
         $config['extraPlugins'] .= 'image2';
 
+        if ($imageresponsive == TRUE)
+        {
+            $config['extraPlugins'] .= ',imageresponsive';
+        }
+
         $this->_include_resources();
 
         return $config;
@@ -131,10 +141,11 @@ class Wygwam_enhanced_img_ext
      */
     private function _include_resources()
     {
-        $plugins = "";
+        $plugins            = '';
         $inline_or_class    = $this->settings['inline_or_class'];
         $captioned_class    = $this->settings['captioned_class'];
         $align_classes      = $this->settings['align_classes'];
+        $imageresponsive    = $this->settings['imageresponsive'];
 
         if ($inline_or_class == "class")
         {
@@ -151,20 +162,19 @@ class Wygwam_enhanced_img_ext
         // Is this the first time we've been called?
         if (!self::$_included_resources)
         {
-            // Tell CKEditor where to find our plugin
-            // EE 2.8 and below ~ (at time of writing) is using version jQuery 1.7.2 which is missing $.parseHTML. Said function came out in jQuery 1.8 - http://api.jquery.com/jquery.parsehtml/
-            // Calling most recent version of jQuery 1 (1.10.2 at time of writing) screws up EE's js a bit (msie undefined error) and why we include jQuery Migrate as well.
-            // Although neither should be here in the first place we have to use add_to_head instead of add_to_foot because that throws errors as well.
-            ee()->cp->add_to_head('<script src="'.$this->theme_url.'libs/jquery.min.js"></script>');
-            ee()->cp->add_to_head('<script src="'.$this->theme_url.'libs/jquery-migrate-1.2.1.min.js"></script>');
-
+            // Tell CKEditor where to find our plugins
             $plugin_names = array('dialogui','dialog','lineutils','clipboard','widget','image2');
 
             foreach ($plugin_names as $name)
             {
                 $plugins .= "CKEDITOR.plugins.addExternal('".$name."', '".$this->theme_url.$name."/');".NL."";
             }
-            
+
+            if ($imageresponsive == TRUE)
+            {
+                $plugins .= "CKEDITOR.plugins.addExternal('imageresponsive', '".$this->theme_url."imageresponsive/');";
+            }
+
             // Tell CKEditor where to find our plugin
             ee()->cp->add_to_foot('
                 <script type="text/javascript">
