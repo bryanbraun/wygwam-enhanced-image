@@ -43,6 +43,7 @@ Don't forget to set your custom classes in your CSS file ;-)
  3. Turn on the extension under Add-ons -> Extensions in the Control Panel.
  
  4. Optional Settings:
+ 	- Turn on/off [Imageresponsive](http://ckeditor.com/addon/imageresponsive) features (default: Non-Responsive)
  	- Set image positioning via Inline or Class based CSS - set to Class for the two settings below to take effect (default: Inline)
  	- Set captioned image class name (default: image-captioned)
  	- Set the image class names for left center right positioning - note default format - (default: 'image-left', 'image-center', 'image-right')	
