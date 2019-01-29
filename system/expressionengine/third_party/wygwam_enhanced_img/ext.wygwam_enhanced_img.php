@@ -14,11 +14,11 @@
 
 class Wygwam_enhanced_img_ext
 {
-    
+
     private static $_included_resources = FALSE;
 
     var $name           = 'Wygwam Enhanced Image';
-    var $version        = '0.2';
+    var $version        = '0.3';
     var $description    = '';
     var $docs_url       = 'http://github.com/Natetronn/wygwam_enhanced_image';
     var $settings_exist = 'y';
@@ -37,11 +37,10 @@ class Wygwam_enhanced_img_ext
      */
     public function __construct($settings = '')
     {
-        $this->EE =& get_instance();
         $this->settings = $settings;
         $this->theme_url    = defined( 'URL_THIRD_THEMES' )
                             ? URL_THIRD_THEMES . 'wygwam_enhanced_img/'
-                            : $this->EE->config->item('theme_folder_url') . 'third_party/wygwam_enhanced_img/';
+                            : ee()->config->item('theme_folder_url') . 'third_party/wygwam_enhanced_img/';
     }
 
     /**
@@ -50,7 +49,7 @@ class Wygwam_enhanced_img_ext
      */
     public function activate_extension()
     {
-        
+
         $this->settings = array(
             'imageresponsive'   => FALSE,
             'inline_or_class'   => "inline",
